@@ -13,11 +13,13 @@ class SearchRideViewController: UIViewController,updateSearchResultsDelegate,UIT
     var posterDetails:PosterDetails = PosterDetails.sharedInstance;
   //  var searchController:UISearchController!;
     var searchForSource:Bool = true;
+    var results:[AnyObject] = [];
     
     @IBOutlet weak var ridesTableView: UITableView!
     @IBOutlet weak var sourceTF: UITextField!
     @IBOutlet weak var destinationTF: UITextField!
 
+    @IBOutlet weak var resultsTableView: UITableView!
     override func viewDidLoad() {
         
    //     searchController = UISearchController();
@@ -50,15 +52,17 @@ class SearchRideViewController: UIViewController,updateSearchResultsDelegate,UIT
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 10;
+        return self.results.count;
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         let cell:RiderSearchResultTableViewCell = tableView.dequeueReusableCellWithIdentifier("searchCell", forIndexPath: indexPath) as! RiderSearchResultTableViewCell
         
+        var drv:Driver = self.results[indexPath.row] as! Driver;
+        
         cell.driverNameLabel!.text = "abcd";
-        cell.ETALabel.text = "forever";
+        cell.costLabel.text = String(drv.cost);
         cell.costLabel.text = "100$";
 
         return cell;
@@ -70,7 +74,17 @@ class SearchRideViewController: UIViewController,updateSearchResultsDelegate,UIT
     
     @IBAction func searchRideTapped(sender: AnyObject) {
         
-        Rider.sharedInstance.convertStringToLocation(self.sourceTF.text!,destLoc: self.destinationTF.text!);
+        Rider.sharedInstance.convertStringToLocation(self.sourceTF.text!, destLoc: self.destinationTF.text!) { (result) -> Void in
+            
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                
+                self.results = result;
+                self.resultsTableView.reloadData();
+                
+            })
+
+            
+        }
     }
 
     @IBAction func postRideTapped(sender: AnyObject) {

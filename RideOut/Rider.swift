@@ -20,7 +20,7 @@ class Rider: NSObject {
     var tripTime:Int?;
     
     
-    func convertStringToLocation(sourceLoc:String , destLoc:String) -> Void
+    func convertStringToLocation(sourceLoc:String , destLoc:String, completion: (result:[AnyObject]) -> Void) -> Void
     {
         //geocoding string to Location
         
@@ -81,7 +81,10 @@ class Rider: NSObject {
                                         self.destination = CLLocationCoordinate2D(latitude:lat.doubleValue, longitude:long.doubleValue);
                                         
                                         dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                                            self.fetchData(self.source!, dest: self.destination!)
+                                            
+                                            var response:[AnyObject] = self.fetchData(self.source!, dest: self.destination!);
+                                            completion(result:response);
+                                            
                                         })
                                         
                                         

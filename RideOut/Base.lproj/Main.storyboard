@@ -37,7 +37,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="ElJ-TM-BGZ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg1.png" translatesAutoresizingMaskIntoConstraints="NO" id="ElJ-TM-BGZ">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <animations/>
                             </imageView>
@@ -195,7 +195,7 @@
                             <constraint firstAttribute="trailing" secondItem="Ho3-6m-qiM" secondAttribute="trailing" constant="61" id="xdS-Mq-3P6"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" id="YwM-Un-pJn">
+                    <tabBarItem key="tabBarItem" title="" image="post.png" id="YwM-Un-pJn">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="10"/>
                     </tabBarItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
@@ -404,7 +404,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="C9U-a7-tgg">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg2.png" translatesAutoresizingMaskIntoConstraints="NO" id="C9U-a7-tgg">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <animations/>
                             </imageView>
@@ -563,29 +563,30 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="HWV-Mb-8qb" secondAttribute="trailing" constant="25" id="3uP-Z8-gIO"/>
+                            <constraint firstAttribute="bottom" secondItem="C9U-a7-tgg" secondAttribute="bottom" id="E9c-PT-odJ"/>
                             <constraint firstItem="zdC-Ow-bWU" firstAttribute="leading" secondItem="Ypn-Nf-BM8" secondAttribute="leading" constant="16" id="EQ3-SS-AqP"/>
                             <constraint firstItem="zdC-Ow-bWU" firstAttribute="top" secondItem="HWV-Mb-8qb" secondAttribute="bottom" constant="32" id="F75-zV-wag"/>
                             <constraint firstAttribute="trailing" secondItem="z5T-7C-wUo" secondAttribute="trailing" constant="25" id="IG2-FL-8x3"/>
                             <constraint firstItem="z5T-7C-wUo" firstAttribute="top" secondItem="aAw-Dv-YXd" secondAttribute="bottom" constant="32" id="K3C-Z6-2en"/>
                             <constraint firstItem="RaC-OY-PLM" firstAttribute="top" secondItem="CWf-7e-k5y" secondAttribute="bottom" constant="32" id="UwJ-ZA-VyB"/>
                             <constraint firstItem="HWV-Mb-8qb" firstAttribute="top" secondItem="z5T-7C-wUo" secondAttribute="bottom" constant="16" id="Y6Y-Re-gku"/>
-                            <constraint firstAttribute="trailing" secondItem="C9U-a7-tgg" secondAttribute="trailing" id="a0o-jP-vmO"/>
                             <constraint firstItem="HWV-Mb-8qb" firstAttribute="centerX" secondItem="Ypn-Nf-BM8" secondAttribute="centerX" id="e7r-VQ-hbs"/>
+                            <constraint firstAttribute="trailing" secondItem="C9U-a7-tgg" secondAttribute="trailing" id="fpZ-Ny-03F"/>
                             <constraint firstItem="z5T-7C-wUo" firstAttribute="centerX" secondItem="Ypn-Nf-BM8" secondAttribute="centerX" id="g60-Hp-vZA"/>
                             <constraint firstItem="z5T-7C-wUo" firstAttribute="leading" secondItem="Ypn-Nf-BM8" secondAttribute="leading" constant="25" id="g8W-0r-tNg"/>
-                            <constraint firstItem="C9U-a7-tgg" firstAttribute="top" secondItem="HWV-Mb-8qb" secondAttribute="bottom" constant="-148" id="iH1-EQ-hyv"/>
                             <constraint firstItem="CWf-7e-k5y" firstAttribute="centerX" secondItem="Ypn-Nf-BM8" secondAttribute="centerX" id="kre-i0-gau"/>
-                            <constraint firstItem="CWf-7e-k5y" firstAttribute="top" secondItem="C9U-a7-tgg" secondAttribute="bottom" constant="-121" id="mq1-Rq-FfE"/>
-                            <constraint firstItem="C9U-a7-tgg" firstAttribute="leading" secondItem="Ypn-Nf-BM8" secondAttribute="leading" id="q7Z-0S-Z56"/>
                             <constraint firstAttribute="trailing" secondItem="zdC-Ow-bWU" secondAttribute="trailing" constant="16" id="t6w-lR-IMX"/>
                             <constraint firstItem="CWf-7e-k5y" firstAttribute="top" secondItem="zdC-Ow-bWU" secondAttribute="bottom" constant="18" id="ugm-W0-uWz"/>
                             <constraint firstItem="HWV-Mb-8qb" firstAttribute="leading" secondItem="Ypn-Nf-BM8" secondAttribute="leading" constant="25" id="vad-gA-FpV"/>
+                            <constraint firstItem="C9U-a7-tgg" firstAttribute="top" secondItem="Ypn-Nf-BM8" secondAttribute="top" id="vxF-EW-UNd"/>
+                            <constraint firstItem="C9U-a7-tgg" firstAttribute="leading" secondItem="Ypn-Nf-BM8" secondAttribute="leading" id="yAe-vd-New"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Search a Ride" id="bEU-cw-Aat"/>
+                    <tabBarItem key="tabBarItem" title="Search a Ride" image="search.png" id="bEU-cw-Aat"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="destinationTF" destination="HWV-Mb-8qb" id="ymf-oG-HgO"/>
+                        <outlet property="resultsTableView" destination="zdC-Ow-bWU" id="2yO-2l-Zft"/>
                         <outlet property="sourceTF" destination="z5T-7C-wUo" id="tkk-GG-wFH"/>
                         <segue destination="T0R-KH-887" kind="modal" identifier="showSearchFromSearchRide" id="0d2-Dr-lgl"/>
                     </connections>
@@ -596,7 +597,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bg.png" width="478" height="822"/>
+        <image name="bg1.png" width="654" height="1156"/>
+        <image name="bg2.png" width="504" height="888"/>
+        <image name="post.png" width="25" height="25"/>
+        <image name="search.png" width="25" height="23"/>
         <image name="textfield.png" width="491" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
