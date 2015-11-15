@@ -17,7 +17,7 @@ def removeDuplicates(list):
         if item not in newList:
             newList.append(item)
 
-    newList = sorted(newList)
+    #newList = sorted(newList)
 
     return newList
 
@@ -32,8 +32,8 @@ def isGoalNode(graph,destinationNodes,node):
 
 
 def getSuccessors(graph,node):
-    print node
-    print graph[node]
+    #print node
+    #print graph[node]
     return graph[node]
 
 
@@ -93,11 +93,46 @@ def ParseInputFile(graph):
     return
 
 
-def breadthFirstSearch(graph,source,dest):
+def breadthFirstSearch(graph,source,dest,pathPoint,both=True):
 
     fringe = util.Queue()
     fringe.enqueue( (source,[],[source]) )
+    found_pathPoint = False
+    found_dest = False
+    #rDestFirst = False
+    #print "\nBFS:",graph
 
+    while fringe.isEmpty() == False:
+        node,visited,path = fringe.dequeue()
+        #print "node,visited,path:",node,visited,path
+
+        for nextNode in sorted(getSuccessors(graph,node)):
+            #print "nextNode:",nextNode
+            if not nextNode in visited:
+                if isGoalNode(graph,dest,nextNode) and not found_dest:
+                    found_dest = True
+                    if not both:
+                        return path + [nextNode]
+                if isGoalNode(graph,pathPoint,nextNode) and not found_pathPoint:
+                    found_pathPoint = True
+                    if not both:
+                        return path + [nextNode]
+                if found_dest and found_pathPoint:
+                    return path + [nextNode]
+                #fringe.enqueue( (nextNode,time+1,visited + [nextNode]) )
+                fringe.enqueue( (nextNode,visited + [node],path + [nextNode]) )
+
+    return None
+
+
+def BFS(graph,source,dest,pathPoint):
+
+    fringe = util.Queue()
+    fringe.enqueue( (source,[],[source]) )
+    found_pathPoint = False
+    found_dest = False
+    
+    #rDestFirst = False
     #print "\nBFS:",graph
 
     while fringe.isEmpty() == False:
@@ -108,18 +143,25 @@ def breadthFirstSearch(graph,source,dest):
             #print "nextNode:",nextNode
             if not nextNode in visited:
                 if isGoalNode(graph,dest,nextNode):
+                    #found_dest = True
+                if isGoalNode(graph,pathPoint,nextNode) and not found_pathPoint:
+                    found_pathPoint = True
+                if found_dest and found_pathPoint:
                     return path + [nextNode]
                 #fringe.enqueue( (nextNode,time+1,visited + [nextNode]) )
                 fringe.enqueue( (nextNode,visited + [node],path + [nextNode]) )
 
-    return 'None',''
+    return None
 
 
-def depthFirstSearch(graph,source,dest):
+
+def depthFirstSearch(graph,source,dest,pathPoint):
 
     frontier = util.Stack()
     frontier.push( (source,[]) )
     explored = []
+    found_dest = False
+    found_pathPoint = False
 
     while frontier.isEmpty() == False:
 
@@ -145,12 +187,34 @@ def main():
     driver_source = 'S'
     driver_dest = 'G'
     rider_source = 'B'
-    rider_dest = 'I'
+    rider_dest = 'K'
     driver_waypt = 'H'
-    path = breadthFirstSearch(graph,driver_source,driver_dest)
-    print path
-    path = depthFirstSearch(graph,driver_source,driver_dest)
-    print path
+    path = breadthFirstSearch(graph,driver_source,rider_source,driver_waypt)
+    #print path
+    if path:
+        print path
+        path1 = list(path)
+        path2 = breadthFirstSearch(graph,path[-1],driver_dest,rider_dest,False)
+        path = removeDuplicates(path1 + path2)
+        print path
+
+    rideShares = []
+    ridePath = []
+    flag = False
+    for point in path:
+        if point == rider_source:
+            flag = True
+        elif point == rider_dest:
+            ridePath.append(point)
+            flag = False
+        if flag == True:
+            ridePath.append(point)
+
+    print ridePath
+
+    #for point in ridePath:
+
+
 
 if __name__ == '__main__':
     main()
