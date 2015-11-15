@@ -9,12 +9,15 @@
 import UIKit
 import TagListView
 
-class PostRideMainViewController: UIViewController,updateSearchResultsDelegate {
+class PostRideMainViewController: UIViewController,updateSearchResultsDelegate, UITextFieldDelegate {
 
     var posterDetails:PosterDetails = PosterDetails.sharedInstance;
     var searchController:UISearchController!;
     var searchForSource:Bool = true;
-    
+    var sourceCLCoordinate:CLLocationCoordinate2D?;
+    var destCLCoordinate:CLLocationCoordinate2D?;
+    var actInd : UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0, 50, 50)) as UIActivityIndicatorView;
+
     @IBOutlet weak var tagView: TagListView!
     @IBOutlet weak var tagViewHeight: NSLayoutConstraint!
     @IBOutlet weak var googleMapView: UIView!
@@ -25,6 +28,11 @@ class PostRideMainViewController: UIViewController,updateSearchResultsDelegate {
         
         searchController = UISearchController();
         
+        actInd.center = self.view.center
+        actInd.hidesWhenStopped = true
+        actInd.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+        view.addSubview(actInd)
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -32,6 +40,13 @@ class PostRideMainViewController: UIViewController,updateSearchResultsDelegate {
         super.viewWillAppear(animated);
         
         self.setupTags();
+        
+        if !(self.sourceTF.text == "") && !(self.destinationTF.text == "")
+        {
+            actInd.startAnimating()
+            self.addRoute(self);
+        }
+
     }
     
     func setupTags() -> Void
@@ -50,6 +65,7 @@ class PostRideMainViewController: UIViewController,updateSearchResultsDelegate {
         }else {
             self.destinationTF!.text = searchedTerm;
         }
+        
     }
 
     func updateWayPoint(wayPoints:[AnyObject])->Void
@@ -57,9 +73,18 @@ class PostRideMainViewController: UIViewController,updateSearchResultsDelegate {
         posterDetails.wayPoints.appendContentsOf(wayPoints) ;
     }
 
+    
     @IBAction func postRideTapped(sender: AnyObject) {
         
         // post ride to parse
+        let newDriverRide:Driver = Driver();
+        newDriverRide.source = self.sourceCLCoordinate;
+        newDriverRide.destination = self.destCLCoordinate;
+        newDriverRide.wayPoints = posterDetails.wayPoints;
+        newDriverRide.startTime = NSDate();
+        newDriverRide.tripTime = 30;
+        
+        newDriverRide.PostData();
         
     }
     
@@ -84,7 +109,8 @@ class PostRideMainViewController: UIViewController,updateSearchResultsDelegate {
         self.performSegueWithIdentifier("showSearch", sender: self);
 
     }
-    @IBAction func addRoute(sender: AnyObject) {
+    
+    func addRoute(sender: AnyObject) {
         
         var mapFrame = CGRectMake(0, 0,googleMapView.frame.size.width, googleMapView.frame.size.height);
         var mapView:GMSMapView! = GMSMapView(frame: mapFrame);
@@ -94,9 +120,7 @@ class PostRideMainViewController: UIViewController,updateSearchResultsDelegate {
 
         self.googleMapView.addSubview(mapView);
         
-        //        let destURLString:Sltring = "http://maps.googleapis.com/maps/api/geocode/json?address=\(self.destinationTF.text!) &sensor=false";
-
-        let urlString:String = "https://maps.googleapis.com/maps/api/directions/json?origin=\(self.sourceTF.text!)&destination=\(self.destinationTF.text!)&key=AIzaSyBF6SPXnRzKjp_-km8JtaLNBCDFEikL1Io"
+        let urlString:String = "https://maps.googleapis.com/maps/api/directions/json?origin=\(self.sourceTF.text!)&destination=\(self.destinationTF.text!)&key=AIzaSyA6ti2oaDgDTHX_dpWCTceYmed734fBoSA"
 
         let sourceURL:NSURL! = NSURL(string:urlString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!);
         let sourceURLRequest:NSURLRequest = NSURLRequest(URL:sourceURL);
@@ -126,18 +150,18 @@ class PostRideMainViewController: UIViewController,updateSearchResultsDelegate {
                         let destCoordinate:NSDictionary = ((json["routes"]!![0]["legs"]!![0]["end_location"] as? NSDictionary)!);
 
 
-                        let sourceCLCoordinate:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude:(sourceCoordinate.objectForKey("lat") as? Double)!, longitude:(sourceCoordinate.objectForKey("lng") as? Double)!);
-                        let destCLCoordinate:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude:destCoordinate.objectForKey("lat") as! Double!, longitude:destCoordinate.objectForKey("lng") as! Double!);
+                         self.sourceCLCoordinate = CLLocationCoordinate2D(latitude:(sourceCoordinate.objectForKey("lat") as? Double)!, longitude:(sourceCoordinate.objectForKey("lng") as? Double)!);
+                         self.destCLCoordinate = CLLocationCoordinate2D(latitude:destCoordinate.objectForKey("lat") as! Double!, longitude:destCoordinate.objectForKey("lng") as! Double!);
 
-                        let cameraBounds:GMSCoordinateBounds = GMSCoordinateBounds(coordinate: sourceCLCoordinate, coordinate: destCLCoordinate);
+                        let cameraBounds:GMSCoordinateBounds = GMSCoordinateBounds(coordinate: self.sourceCLCoordinate!, coordinate: self.destCLCoordinate!);
                         let camera:GMSCameraPosition = mapView.cameraForBounds(cameraBounds, insets: UIEdgeInsetsMake(20,30,20,30));
                         camera
                         mapView.camera = camera;
                         
-                        var sourceMarker:GMSMarker = GMSMarker(position:sourceCLCoordinate);
+                        var sourceMarker:GMSMarker = GMSMarker(position:self.sourceCLCoordinate!);
                         sourceMarker.map = mapView
 
-                        var destMarker:GMSMarker = GMSMarker(position:destCLCoordinate);
+                        let destMarker:GMSMarker = GMSMarker(position:self.destCLCoordinate!);
                         destMarker.map = mapView
 
                         let navPath:GMSPath = GMSPath(fromEncodedPath:((json["routes"]!![0]["overview_polyline"]!!["points"] as? String)!))
@@ -145,6 +169,9 @@ class PostRideMainViewController: UIViewController,updateSearchResultsDelegate {
                         line.strokeWidth = 4.0;
                         line.strokeColor = UIColor.greenColor();
                         line.map = mapView;
+                        
+                        self.actInd.stopAnimating();
+
                     });
                     
                 } catch let error as NSError {

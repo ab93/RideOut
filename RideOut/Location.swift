@@ -6,7 +6,7 @@
 //  Copyright © 2015 Gaurav Nijhara. All rights reserved.
 //
 
-import Cocoa
+import UIKit
 
 class Location: NSObject {
 

@@ -59,8 +59,8 @@ class SearchRideViewController: UIViewController,updateSearchResultsDelegate,UIT
         
 //        cell.driverNameLabel!.text = "abcd";
 //        cell.newlabel.text = "testing"
-        cell.newlabel2?.text = "testing"
-    print("set label")
+//        cell.newlabel2?.text = "testing"
+//    print("set label")
         //        cell.ETALabel.text = "forever";
 //        cell.costLabel.text = "100$";
         //cell.setNeedsLayout();
@@ -73,6 +73,11 @@ class SearchRideViewController: UIViewController,updateSearchResultsDelegate,UIT
         return UIView();
     }
     
+    @IBAction func searchRideTapped(sender: AnyObject) {
+        
+        Rider.sharedInstance.convertStringToLocation(self.sourceTF.text!,destLoc: self.destinationTF.text!);
+    }
+
     @IBAction func postRideTapped(sender: AnyObject) {
         
         // post ride to parse

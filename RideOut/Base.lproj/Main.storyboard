@@ -377,7 +377,6 @@
         <!--Search a Ride-->
         <scene sceneID="UuH-Ub-XPx">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5g2-m4-7tr" sceneMemberID="firstResponder"/>
                 <viewController id="5EH-Qr-tO4" userLabel="Search a Ride" customClass="SearchRideViewController" customModule="RideOut" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aAw-Dv-YXd"/>
@@ -489,6 +488,7 @@
                         <segue destination="T0R-KH-887" kind="modal" identifier="showSearchFromSearchRide" id="0d2-Dr-lgl"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5g2-m4-7tr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-94" y="308"/>
         </scene>

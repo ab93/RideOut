@@ -18,7 +18,7 @@ protocol updateSearchResultsDelegate
 class SearchResultsViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating,UISearchBarDelegate {
 
     var isDestinationAdded:Bool!;
-    var areWayPointsNeeded:Bool!;
+    var areWayPointsNeeded:Bool = false;
     var posterDetails:PosterDetails = PosterDetails.sharedInstance;
     var delegate:updateSearchResultsDelegate?;
     

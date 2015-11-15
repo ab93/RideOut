@@ -1,16 +1,22 @@
 PODS:
+  - Bolts/Tasks (1.5.0)
   - Cosmos (1.1.3)
   - GoogleMaps (1.10.5)
+  - Parse (1.9.1):
+    - Bolts/Tasks (>= 1.4.0)
   - TagListView (0.4)
 
 DEPENDENCIES:
   - Cosmos (~> 1.1)
   - GoogleMaps
+  - Parse
   - TagListView
 
 SPEC CHECKSUMS:
+  Bolts: 722ab9a4f8b50fc4ed1b9998a5a7a2b3f16d80b4
   Cosmos: 9baaa9b1fa63fb503ae496ecdd6535801e916f1a
   GoogleMaps: da51c62c338c2d9c47cdad470a0d1e0e4b8544e4
+  Parse: 54a965c8c19a6dde90284ab654dbcc77ef8c001b
   TagListView: 849eca7c99d9c1fc4f5406bd564aa3e90f05632c
 
 COCOAPODS: 0.39.0
