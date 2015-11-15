@@ -1,4 +1,4 @@
-package com.hackathon.cmc;
+package com.hackathon.cmc.activity;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -6,15 +6,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class PhotosFragment extends Fragment {
+import com.hackathon.cmc.R;
+
+public class SettingsFragment extends Fragment {
 	
-	public PhotosFragment(){}
+	public SettingsFragment(){}
 	
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
  
-        View rootView = inflater.inflate(R.layout.fragment_advanced_search, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_settings, container, false);
          
         return rootView;
     }

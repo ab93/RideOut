@@ -1,4 +1,4 @@
-package com.hackathon.cmc;
+package com.hackathon.cmc.activity;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -51,6 +51,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
+import com.hackathon.cmc.R;
 import com.hackathon.cmc.adapter.PathJSONParser;
 import com.hackathon.cmc.locationplacesautocomplete.CustomAutoCompleteTextView;
 import com.hackathon.cmc.locationplacesautocomplete.PlaceJSONParser;

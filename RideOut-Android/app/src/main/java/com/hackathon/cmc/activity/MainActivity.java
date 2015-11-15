@@ -1,22 +1,13 @@
-package com.hackathon.cmc;
+package com.hackathon.cmc.activity;
 
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.maps.model.PolylineOptions;
+import com.hackathon.cmc.R;
 import com.hackathon.cmc.adapter.NavDrawerListAdapter;
-import com.hackathon.cmc.adapter.PathJSONParser;
 import com.hackathon.cmc.model.NavDrawerItem;
 
-import android.app.ActionBar;
-import android.app.Activity;
-import android.graphics.Color;
-import android.os.AsyncTask;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentActivity;
@@ -26,15 +17,11 @@ import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ImageView;
 import android.widget.ListView;
-
-import org.json.JSONObject;
 
 
 public class MainActivity extends FragmentActivity {
@@ -186,19 +173,19 @@ public class MainActivity extends FragmentActivity {
 			fragment = new HomeFragment();
 			break;
 		case 1:
-			fragment = new FindPeopleFragment();
+			fragment = new ProfileFragment();
 			break;
 		case 2:
-			fragment = new PhotosFragment();
+			fragment = new AdvancedSearchFragment();
 			break;
 		case 3:
-			fragment = new CommunityFragment();
+			fragment = new AddReviewFragment();
 			break;
 		case 4:
-			fragment = new PagesFragment();
+			fragment = new SettingsFragment();
 			break;
 		case 5:
-			fragment = new WhatsHotFragment();
+			fragment = new LogoutFragment();
 			break;
 
 		default:
