@@ -8,13 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		8E8AC312995EACE88E37A120 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB9CA10FF8386B000CB3ECE3 /* Pods.framework */; };
-		9256F2C51BF89E04006B196E /* textfield.png in Resources */ = {isa = PBXBuildFile; fileRef = 9256F2C31BF89E04006B196E /* textfield.png */; settings = {ASSET_TAGS = (); }; };
-		9256F2C71BF8C6BF006B196E /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 9256F2C61BF8C6BF006B196E /* bg.png */; settings = {ASSET_TAGS = (); }; };
-		9256F2CD1BF8C972006B196E /* post-ride.png in Resources */ = {isa = PBXBuildFile; fileRef = 9256F2CC1BF8C972006B196E /* post-ride.png */; settings = {ASSET_TAGS = (); }; };
-		9256F2CF1BF8C9DB006B196E /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 9256F2CE1BF8C9DB006B196E /* add.png */; settings = {ASSET_TAGS = (); }; };
+		9256F2C51BF89E04006B196E /* textfield.png in Resources */ = {isa = PBXBuildFile; fileRef = 9256F2C31BF89E04006B196E /* textfield.png */; };
+		9256F2C71BF8C6BF006B196E /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 9256F2C61BF8C6BF006B196E /* bg.png */; };
+		9256F2CD1BF8C972006B196E /* post-ride.png in Resources */ = {isa = PBXBuildFile; fileRef = 9256F2CC1BF8C972006B196E /* post-ride.png */; };
+		9256F2CF1BF8C9DB006B196E /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 9256F2CE1BF8C9DB006B196E /* add.png */; };
 		962C53AB1BF7F66E003569A4 /* SearchRideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962C53AA1BF7F66E003569A4 /* SearchRideViewController.swift */; };
 		962C53AD1BF8197C003569A4 /* SearchResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962C53AC1BF8197C003569A4 /* SearchResultsTableViewCell.swift */; };
 		962C53B21BF85D56003569A4 /* RiderSearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962C53B11BF85D56003569A4 /* RiderSearchResultTableViewCell.swift */; };
+		962C53BC1BF8CB63003569A4 /* Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962C53B91BF8CB63003569A4 /* Driver.swift */; };
+		962C53BD1BF8CB63003569A4 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962C53BA1BF8CB63003569A4 /* Location.swift */; };
+		962C53BE1BF8CB63003569A4 /* Rider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962C53BB1BF8CB63003569A4 /* Rider.swift */; };
 		965ADC851BF72B04003E6133 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965ADC841BF72B04003E6133 /* AppDelegate.swift */; };
 		965ADC871BF72B04003E6133 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965ADC861BF72B04003E6133 /* ViewController.swift */; };
 		965ADC8A1BF72B04003E6133 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 965ADC881BF72B04003E6133 /* Main.storyboard */; };
@@ -37,6 +40,9 @@
 		962C53AA1BF7F66E003569A4 /* SearchRideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchRideViewController.swift; sourceTree = "<group>"; };
 		962C53AC1BF8197C003569A4 /* SearchResultsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewCell.swift; sourceTree = "<group>"; };
 		962C53B11BF85D56003569A4 /* RiderSearchResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RiderSearchResultTableViewCell.swift; sourceTree = "<group>"; };
+		962C53B91BF8CB63003569A4 /* Driver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Driver.swift; sourceTree = "<group>"; };
+		962C53BA1BF8CB63003569A4 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		962C53BB1BF8CB63003569A4 /* Rider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rider.swift; sourceTree = "<group>"; };
 		965ADC811BF72B04003E6133 /* RideOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RideOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		965ADC841BF72B04003E6133 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		965ADC861BF72B04003E6133 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +125,9 @@
 		965ADC831BF72B04003E6133 /* RideOut */ = {
 			isa = PBXGroup;
 			children = (
+				962C53B91BF8CB63003569A4 /* Driver.swift */,
+				962C53BA1BF8CB63003569A4 /* Location.swift */,
+				962C53BB1BF8CB63003569A4 /* Rider.swift */,
 				965ADC841BF72B04003E6133 /* AppDelegate.swift */,
 				965ADCA51BF773B6003E6133 /* PosterDetails.swift */,
 				965ADC861BF72B04003E6133 /* ViewController.swift */,
@@ -264,7 +273,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				962C53BC1BF8CB63003569A4 /* Driver.swift in Sources */,
 				965ADC871BF72B04003E6133 /* ViewController.swift in Sources */,
+				962C53BE1BF8CB63003569A4 /* Rider.swift in Sources */,
 				965ADCA41BF76FBF003E6133 /* MapViewController.swift in Sources */,
 				962C53AD1BF8197C003569A4 /* SearchResultsTableViewCell.swift in Sources */,
 				962C53AB1BF7F66E003569A4 /* SearchRideViewController.swift in Sources */,
@@ -273,6 +284,7 @@
 				965ADCA61BF773B6003E6133 /* PosterDetails.swift in Sources */,
 				965ADC991BF738AC003E6133 /* PostRideMainViewController.swift in Sources */,
 				965ADC851BF72B04003E6133 /* AppDelegate.swift in Sources */,
+				962C53BD1BF8CB63003569A4 /* Location.swift in Sources */,
 				965ADC9D1BF745B3003E6133 /* SearchResultsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

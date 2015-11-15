@@ -416,6 +416,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="sourceTFTapped:" destination="5EH-Qr-tO4" eventType="editingDidBegin" id="qVz-pX-dH2"/>
+                                    <outlet property="delegate" destination="5EH-Qr-tO4" id="baF-T8-Web"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWf-7e-k5y">
@@ -430,7 +431,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="postRideTapped:" destination="5EH-Qr-tO4" eventType="touchUpInside" id="c4S-a4-uVQ"/>
+                                    <action selector="searchRideTapped:" destination="5EH-Qr-tO4" eventType="touchUpInside" id="Q4e-XH-6l0"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Destination" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HWV-Mb-8qb">
@@ -452,6 +453,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="destinationTFTapped:" destination="5EH-Qr-tO4" eventType="editingDidBegin" id="JOE-nT-nZJ"/>
+                                    <outlet property="delegate" destination="5EH-Qr-tO4" id="jAs-sa-QOj"/>
                                 </connections>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zdC-Ow-bWU">
