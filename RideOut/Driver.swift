@@ -16,6 +16,7 @@ class Driver: NSObject {
     var destination:CLLocationCoordinate2D?;
     var startTime:NSDate?;
     var tripTime:Int?;
+    var cost:Int?;
     var wayPoints:[AnyObject] = []
     
     func PostData()->Void
@@ -36,13 +37,14 @@ class Driver: NSObject {
         sourceLocation["loc"] = sourceLoc;
         destLocation["loc"] = destinationLoc;
 
-        let gameScore = PFObject(className:"Driver")
-        gameScore["startTime"] = startTime
-        gameScore["tripTime"] = tripTime;
-        gameScore["source"] = sourceLocation;
-        gameScore["destination"] = destLocation;
-        gameScore["wayPoints"] = wayPoints;
-        gameScore.saveInBackgroundWithBlock {
+        let request = PFObject(className:"Driver")
+        request["startTime"] = startTime
+        request["tripTime"] = tripTime;
+        request["source"] = sourceLocation;
+        request["destination"] = destLocation;
+        request["wayPoints"] = wayPoints;
+        request["cost"] = cost;
+        request.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in
             if (success) {
                 // The object has been saved.

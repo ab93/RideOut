@@ -24,6 +24,8 @@ class PostRideMainViewController: UIViewController,updateSearchResultsDelegate, 
     @IBOutlet weak var sourceTF: UITextField!
     @IBOutlet weak var destinationTF: UITextField!
 
+    @IBOutlet weak var costTF: UITextField!
+    
     override func viewDidLoad() {
         
         searchController = UISearchController();
@@ -83,6 +85,7 @@ class PostRideMainViewController: UIViewController,updateSearchResultsDelegate, 
         newDriverRide.wayPoints = posterDetails.wayPoints;
         newDriverRide.startTime = NSDate();
         newDriverRide.tripTime = 30;
+        newDriverRide.cost = Int(self.costTF.text!);
         
         newDriverRide.PostData();
         

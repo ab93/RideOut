@@ -44,9 +44,9 @@ class SearchRideViewController: UIViewController,updateSearchResultsDelegate,UIT
         
     }
     
-//    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//        return 75;
-//    }
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 70;
+    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
@@ -55,16 +55,11 @@ class SearchRideViewController: UIViewController,updateSearchResultsDelegate,UIT
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let cell:RiderSearchResultTableViewCell = tableView.dequeueReusableCellWithIdentifier("newcell", forIndexPath: indexPath) as! RiderSearchResultTableViewCell
+        let cell:RiderSearchResultTableViewCell = tableView.dequeueReusableCellWithIdentifier("searchCell", forIndexPath: indexPath) as! RiderSearchResultTableViewCell
         
-//        cell.driverNameLabel!.text = "abcd";
-//        cell.newlabel.text = "testing"
-//        cell.newlabel2?.text = "testing"
-//    print("set label")
-        //        cell.ETALabel.text = "forever";
-//        cell.costLabel.text = "100$";
-        //cell.setNeedsLayout();
-//        cell.textLabel?.text = "Title"
+        cell.driverNameLabel!.text = "abcd";
+        cell.ETALabel.text = "forever";
+        cell.costLabel.text = "100$";
 
         return cell;
     }
