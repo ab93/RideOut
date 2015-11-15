@@ -10,4 +10,8 @@ import UIKit
 
 class RootTabBarController: UITabBarController {
 
+    override func prefersStatusBarHidden() -> Bool {
+        return true;
+    }
+
 }
