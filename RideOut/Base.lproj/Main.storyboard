@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="gFF-Xf-O92">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="gFF-Xf-O92">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -25,7 +24,7 @@
             </objects>
             <point key="canvasLocation" x="-589.60000000000002" y="-56.799999999999997"/>
         </scene>
-        <!--Post a Ride-->
+        <!--Post Ride Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="PostRideMainViewController" customModule="RideOut" customModuleProvider="target" sceneMemberID="viewController">
@@ -37,8 +36,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Source" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rWI-Lq-k2P">
-                                <rect key="frame" x="25" y="52" width="364" height="40"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="ElJ-TM-BGZ">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Source" textAlignment="center" minimumFontSize="17" background="textfield.png" translatesAutoresizingMaskIntoConstraints="NO" id="rWI-Lq-k2P">
+                                <rect key="frame" x="39" y="53" width="336" height="40"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="KKB-jc-M9M"/>
@@ -73,16 +75,16 @@
                                     <action selector="postRideTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qqW-lQ-Meq"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ho3-6m-qiM">
-                                <rect key="frame" x="58" y="407" width="298" height="187"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ho3-6m-qiM">
+                                <rect key="frame" x="39" y="320" width="336" height="258"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="187" id="D7u-bF-onk"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9mW-KP-OlM" customClass="TagListView" customModule="TagListView">
-                                <rect key="frame" x="8" y="171" width="365" height="100"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9mW-KP-OlM" customClass="TagListView" customModule="TagListView">
+                                <rect key="frame" x="39" y="196" width="336" height="104"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -124,19 +126,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nCO-o0-Zmn">
-                                <rect key="frame" x="382" y="210" width="22" height="22"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="22" id="4jV-Bj-T4I"/>
-                                    <constraint firstAttribute="height" constant="22" id="bPK-aa-ITD"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="addMoreWayPoint:" destination="BYZ-38-t0r" eventType="touchUpInside" id="x5K-Cn-vlc"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Destination" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fRx-Hu-URF">
-                                <rect key="frame" x="25" y="108" width="364" height="40"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Destination" textAlignment="center" minimumFontSize="17" background="textfield.png" translatesAutoresizingMaskIntoConstraints="NO" id="fRx-Hu-URF">
+                                <rect key="frame" x="39" y="113" width="336" height="40"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="lOE-ke-eVj"/>
@@ -156,9 +147,19 @@
                                     <action selector="destinationTFTapped:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="Kdk-ad-vcm"/>
                                 </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nCO-o0-Zmn">
+                                <rect key="frame" x="196" y="161" width="22" height="22"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="22" id="4jV-Bj-T4I"/>
+                                    <constraint firstAttribute="height" constant="22" id="bPK-aa-ITD"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="addMoreWayPoint:" destination="BYZ-38-t0r" eventType="touchUpInside" id="x5K-Cn-vlc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="nCO-o0-Zmn" secondAttribute="trailing" constant="10" id="1xn-UK-hXx"/>
                             <constraint firstItem="fRx-Hu-URF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2li-U7-qCH"/>
@@ -166,21 +167,25 @@
                             <constraint firstAttribute="trailing" secondItem="fRx-Hu-URF" secondAttribute="trailing" constant="25" id="6DB-uP-ePz"/>
                             <constraint firstItem="rWI-Lq-k2P" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8Fr-PG-wGE"/>
                             <constraint firstItem="Ho3-6m-qiM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="58" id="8Kr-IQ-1Xg"/>
+                            <constraint firstItem="ElJ-TM-BGZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="E1l-t2-ZjF"/>
                             <constraint firstItem="rWI-Lq-k2P" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="25" id="Gbv-6Q-je2"/>
                             <constraint firstItem="fRx-Hu-URF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="25" id="NW0-am-p2D"/>
+                            <constraint firstAttribute="bottom" secondItem="ElJ-TM-BGZ" secondAttribute="bottom" id="RVZ-4X-tcH"/>
                             <constraint firstItem="fRx-Hu-URF" firstAttribute="top" secondItem="rWI-Lq-k2P" secondAttribute="bottom" constant="16" id="TzB-0K-B3b"/>
                             <constraint firstAttribute="trailing" secondItem="rWI-Lq-k2P" secondAttribute="trailing" constant="25" id="Wj3-ml-390"/>
+                            <constraint firstItem="ElJ-TM-BGZ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="aQ6-7G-doR"/>
                             <constraint firstAttribute="trailing" secondItem="9mW-KP-OlM" secondAttribute="trailing" constant="41" id="bsD-Ef-MMb"/>
                             <constraint firstItem="TlF-W3-96X" firstAttribute="top" secondItem="Ho3-6m-qiM" secondAttribute="bottom" constant="21" id="bta-8p-CJK"/>
                             <constraint firstItem="9mW-KP-OlM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="fgO-IX-64k"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="TlF-W3-96X" secondAttribute="bottom" constant="32" id="gaR-QU-3hx"/>
                             <constraint firstItem="nCO-o0-Zmn" firstAttribute="centerY" secondItem="9mW-KP-OlM" secondAttribute="centerY" id="hEs-bu-Jxj"/>
                             <constraint firstItem="rWI-Lq-k2P" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="32" id="qvK-gV-7E4"/>
+                            <constraint firstAttribute="trailing" secondItem="ElJ-TM-BGZ" secondAttribute="trailing" id="rWa-U5-ZXC"/>
                             <constraint firstItem="TlF-W3-96X" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tva-8j-X7l"/>
                             <constraint firstAttribute="trailing" secondItem="Ho3-6m-qiM" secondAttribute="trailing" constant="58" id="xdS-Mq-3P6"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Post a Ride" id="YwM-Un-pJn"/>
+                    <tabBarItem key="tabBarItem" title="" image="post-ride.png" id="YwM-Un-pJn"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="destinationTF" destination="fRx-Hu-URF" id="MRq-XB-xFx"/>
@@ -386,6 +391,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="C9U-a7-tgg">
+                                <rect key="frame" x="0.0" y="304" width="414" height="128"/>
+                            </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Source" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z5T-7C-wUo">
                                 <rect key="frame" x="25" y="52" width="364" height="40"/>
                                 <animations/>
@@ -471,11 +479,15 @@
                             <constraint firstItem="z5T-7C-wUo" firstAttribute="top" secondItem="aAw-Dv-YXd" secondAttribute="bottom" constant="32" id="K3C-Z6-2en"/>
                             <constraint firstItem="RaC-OY-PLM" firstAttribute="top" secondItem="CWf-7e-k5y" secondAttribute="bottom" constant="32" id="UwJ-ZA-VyB"/>
                             <constraint firstItem="HWV-Mb-8qb" firstAttribute="top" secondItem="z5T-7C-wUo" secondAttribute="bottom" constant="16" id="Y6Y-Re-gku"/>
+                            <constraint firstAttribute="trailing" secondItem="C9U-a7-tgg" secondAttribute="trailing" id="a0o-jP-vmO"/>
                             <constraint firstAttribute="trailing" secondItem="zdC-Ow-bWU" secondAttribute="trailing" id="a7v-vh-JV3"/>
                             <constraint firstItem="HWV-Mb-8qb" firstAttribute="centerX" secondItem="Ypn-Nf-BM8" secondAttribute="centerX" id="e7r-VQ-hbs"/>
                             <constraint firstItem="z5T-7C-wUo" firstAttribute="centerX" secondItem="Ypn-Nf-BM8" secondAttribute="centerX" id="g60-Hp-vZA"/>
                             <constraint firstItem="z5T-7C-wUo" firstAttribute="leading" secondItem="Ypn-Nf-BM8" secondAttribute="leading" constant="25" id="g8W-0r-tNg"/>
+                            <constraint firstItem="C9U-a7-tgg" firstAttribute="top" secondItem="HWV-Mb-8qb" secondAttribute="bottom" id="iH1-EQ-hyv"/>
                             <constraint firstItem="CWf-7e-k5y" firstAttribute="centerX" secondItem="Ypn-Nf-BM8" secondAttribute="centerX" id="kre-i0-gau"/>
+                            <constraint firstItem="CWf-7e-k5y" firstAttribute="top" secondItem="C9U-a7-tgg" secondAttribute="bottom" id="mq1-Rq-FfE"/>
+                            <constraint firstItem="C9U-a7-tgg" firstAttribute="leading" secondItem="Ypn-Nf-BM8" secondAttribute="leading" id="q7Z-0S-Z56"/>
                             <constraint firstItem="CWf-7e-k5y" firstAttribute="top" secondItem="zdC-Ow-bWU" secondAttribute="bottom" constant="18" id="ugm-W0-uWz"/>
                             <constraint firstItem="HWV-Mb-8qb" firstAttribute="leading" secondItem="Ypn-Nf-BM8" secondAttribute="leading" constant="25" id="vad-gA-FpV"/>
                         </constraints>
@@ -493,7 +505,12 @@
             <point key="canvasLocation" x="-94" y="308"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bg.png" width="478" height="822"/>
+        <image name="post-ride.png" width="30" height="37"/>
+        <image name="textfield.png" width="491" height="120"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0d2-Dr-lgl"/>
+        <segue reference="mNw-tZ-eLf"/>
     </inferredMetricsTieBreakers>
 </document>
