@@ -7,9 +7,6 @@ import util
 
 from pygraphviz import *
 
-def getStartNode(graph,sourceNode):
-    return sourceNode
-
 
 def removeDuplicates(list):
     newList = []
@@ -125,13 +122,11 @@ def breadthFirstSearch(graph,source,dest,pathPoint,both=True):
     return None
 
 
-def BFS(graph,source,dest,pathPoint):
+def BFS(graph,source,dest):
 
     fringe = util.Queue()
     fringe.enqueue( (source,[],[source]) )
-    found_pathPoint = False
-    found_dest = False
-    
+
     #rDestFirst = False
     #print "\nBFS:",graph
 
@@ -143,10 +138,6 @@ def BFS(graph,source,dest,pathPoint):
             #print "nextNode:",nextNode
             if not nextNode in visited:
                 if isGoalNode(graph,dest,nextNode):
-                    #found_dest = True
-                if isGoalNode(graph,pathPoint,nextNode) and not found_pathPoint:
-                    found_pathPoint = True
-                if found_dest and found_pathPoint:
                     return path + [nextNode]
                 #fringe.enqueue( (nextNode,time+1,visited + [nextNode]) )
                 fringe.enqueue( (nextNode,visited + [node],path + [nextNode]) )
@@ -179,6 +170,7 @@ def depthFirstSearch(graph,source,dest,pathPoint):
     return 'None',''
 
 
+
 def main():
 
     graph = {}
@@ -187,34 +179,30 @@ def main():
     driver_source = 'S'
     driver_dest = 'G'
     rider_source = 'B'
-    rider_dest = 'K'
+    rider_dest = 'I'
     driver_waypt = 'H'
-    path = breadthFirstSearch(graph,driver_source,rider_source,driver_waypt)
-    #print path
-    if path:
-        print path
-        path1 = list(path)
-        path2 = breadthFirstSearch(graph,path[-1],driver_dest,rider_dest,False)
-        path = removeDuplicates(path1 + path2)
-        print path
 
-    rideShares = []
+
+    path1 = BFS(graph,driver_source,driver_waypt)
+    path2 = BFS(graph,driver_waypt,driver_dest)
+    print path1,path2
+    fullPath = removeDuplicates(path1 + path2)
+    print "fullpath:",fullPath
+
     ridePath = []
     flag = False
-    for point in path:
-        if point == rider_source:
-            flag = True
-        elif point == rider_dest:
-            ridePath.append(point)
-            flag = False
-        if flag == True:
-            ridePath.append(point)
+
+    pos1 = pos2 = None
+    for i in range(len(fullPath)):
+        if fullPath[i] == rider_source:
+            pos1 = i
+        elif fullPath[i] == rider_dest:
+            pos2 = i
+
+    if pos1 and pos2:
+        ridePath = fullPath[pos1:pos2+1]
 
     print ridePath
-
-    #for point in ridePath:
-
-
 
 if __name__ == '__main__':
     main()
